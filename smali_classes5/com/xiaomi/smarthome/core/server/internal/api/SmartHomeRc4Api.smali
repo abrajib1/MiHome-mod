@@ -351,7 +351,7 @@
 .end method
 
 .method private a(Lcom/xiaomi/smarthome/core/entity/net/NetRequest;)Ljava/lang/String;
-    .locals 2
+    .locals 8
 
     if-eqz p1, :cond_0
 
@@ -398,13 +398,59 @@
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+    
+    invoke-virtual {p1}, Lcom/xiaomi/smarthome/core/entity/net/NetRequest;->e()Ljava/util/List;
 
+    move-result-object v2
+    
+    const-string v3, ""
+
+    invoke-static {v3, v2}, Lcom/xiaomi/smarthome/core/server/internal/util/KeyValuePairUtil;->a(Ljava/lang/String;Ljava/util/List;)Ljava/lang/String;
+
+    move-result-object v3
+    
+    const-string v4, "yeelink.light.color3"
+
+    invoke-virtual {v3, v4}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
+
+    move-result v5
+
+    if-eqz v5, :cond_4
+    
+    const-string v4, "package_id"
+    
+    invoke-virtual {v3, v4}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
+
+    move-result v5
+    
+    if-nez v5, :cond_4
+    
+    invoke-virtual {p1}, Lcom/xiaomi/smarthome/core/entity/net/NetRequest;->b()Ljava/lang/String;
+
+    move-result-object v2
+    
+    const-string v4, "/plugin/update_plugin"
+
+    invoke-virtual {v2, v4}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
+
+    move-result v5
+    
+    if-eqz v5, :cond_4
+    
+    const-string v1, "https://ru.api.io.mi.com/app/plugin/update_plugin"
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    
+    goto :goto_5
+    
+    :cond_4
+    
     invoke-direct {p0}, Lcom/xiaomi/smarthome/core/server/internal/api/SmartHomeRc4Api;->c()Ljava/lang/String;
 
     move-result-object v1
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
+    
     const-string v1, "/app"
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
@@ -414,12 +460,15 @@
     move-result-object p1
 
     invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    
+	:goto_5
 
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object p1
 
     return-object p1
+
 .end method
 
 .method private a(Ljava/lang/String;)Ljava/lang/String;
