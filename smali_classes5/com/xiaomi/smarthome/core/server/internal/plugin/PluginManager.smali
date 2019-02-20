@@ -14501,7 +14501,9 @@
     :try_start_0
     iget-object v0, p0, Lcom/xiaomi/smarthome/core/server/internal/plugin/PluginManager;->k:Landroid/content/Context;
 
-    invoke-virtual {v0}, Landroid/content/Context;->getFilesDir()Ljava/io/File;
+    const/4 v1, 0x0
+
+    invoke-virtual {v0, v1}, Landroid/content/Context;->getExternalFilesDir(Ljava/lang/String;)Ljava/io/File;
 
     move-result-object v0
 
@@ -14793,7 +14795,9 @@
     .line 940
     iget-object v0, p0, Lcom/xiaomi/smarthome/core/server/internal/plugin/PluginManager;->k:Landroid/content/Context;
 
-    invoke-virtual {v0}, Landroid/content/Context;->getFilesDir()Ljava/io/File;
+    const/4 v1, 0x0
+
+    invoke-virtual {v0, v1}, Landroid/content/Context;->getExternalFilesDir(Ljava/lang/String;)Ljava/io/File;
 
     move-result-object v0
 
