@@ -15092,7 +15092,7 @@
 
     const/4 v3, 0x1
 
-    if-eqz v0, :cond_10
+    if-eqz v0, :cond_f
 
     .line 1016
     invoke-static {}, Lcom/xiaomi/smarthome/core/server/internal/globaldynamicsetting/GlobalDynamicSettingManager;->a()Lcom/xiaomi/smarthome/core/server/internal/globaldynamicsetting/GlobalDynamicSettingManager;
@@ -15111,40 +15111,8 @@
     move-result-object v0
 
     .line 1019
-    :cond_0
-    sget-object v4, Ljava/util/Locale;->SIMPLIFIED_CHINESE:Ljava/util/Locale;
-
-    invoke-virtual {v4}, Ljava/util/Locale;->getCountry()Ljava/lang/String;
-
-    move-result-object v4
-
-    invoke-virtual {v0}, Ljava/util/Locale;->getCountry()Ljava/lang/String;
-
-    move-result-object v5
-
-    invoke-static {v4, v5}, Landroid/text/TextUtils;->equals(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)Z
-
-    move-result v4
-
-    if-eqz v4, :cond_b
-
-    sget-object v4, Ljava/util/Locale;->SIMPLIFIED_CHINESE:Ljava/util/Locale;
-
-    invoke-virtual {v4}, Ljava/util/Locale;->getLanguage()Ljava/lang/String;
-
-    move-result-object v4
-
-    invoke-virtual {v0}, Ljava/util/Locale;->getLanguage()Ljava/lang/String;
-
-    move-result-object v5
-
-    invoke-static {v4, v5}, Landroid/text/TextUtils;->equals(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)Z
-
-    move-result v4
-
-    if-eqz v4, :cond_b
-
     .line 1020
+    :cond_0
     iget-object v0, p0, Lcom/xiaomi/smarthome/core/server/internal/plugin/PluginManager;->Y:Landroid/content/SharedPreferences;
 
     const-string v4, "last_check_version"
@@ -15185,21 +15153,7 @@
 
     invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v5, "plugin_config/plugin_config_"
-
-    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-static {}, Lcom/xiaomi/smarthome/core/server/internal/globaldynamicsetting/GlobalDynamicSettingManager;->a()Lcom/xiaomi/smarthome/core/server/internal/globaldynamicsetting/GlobalDynamicSettingManager;
-
-    move-result-object v5
-
-    invoke-virtual {v5, v3}, Lcom/xiaomi/smarthome/core/server/internal/globaldynamicsetting/GlobalDynamicSettingManager;->a(Z)Ljava/lang/String;
-
-    move-result-object v5
-
-    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    const-string v5, ".json"
+    const-string v5, "plugin_config/plugin_config_cn.json"
 
     invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -15547,8 +15501,6 @@
 
     goto :goto_7
 
-    .line 1102
-    :cond_b
     new-instance v4, Ljava/lang/StringBuilder;
 
     invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
@@ -15575,7 +15527,7 @@
     :goto_7
     sget-boolean v4, Lcom/xiaomi/smarthome/globalsetting/GlobalSetting;->s:Z
 
-    if-eqz v4, :cond_c
+    if-eqz v4, :cond_b
 
     const-string v4, "login"
 
@@ -15585,14 +15537,14 @@
     invoke-static {v4, v5}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 1108
-    :cond_c
+    :cond_b
     iget-object v4, p0, Lcom/xiaomi/smarthome/core/server/internal/plugin/PluginManager;->ag:Ljava/util/Map;
 
     invoke-interface {v4}, Ljava/util/Map;->isEmpty()Z
 
     move-result v4
 
-    if-eqz v4, :cond_11
+    if-eqz v4, :cond_10
 
     .line 1109
     new-instance v4, Lcom/xiaomi/smarthome/core/server/internal/plugin/PluginManager$4;
@@ -15634,7 +15586,7 @@
     move-object v4, v1
 
     :goto_8
-    if-eqz v4, :cond_11
+    if-eqz v4, :cond_10
 
     .line 1127
     iget-object v0, v4, Lcom/xiaomi/smarthome/core/server/internal/plugin/entity/PluginConfigDeveloperInfo;->c:Ljava/util/List;
@@ -15648,7 +15600,7 @@
 
     move-result v5
 
-    if-eqz v5, :cond_e
+    if-eqz v5, :cond_d
 
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -15669,7 +15621,7 @@
 
     move-result v6
 
-    if-eqz v6, :cond_d
+    if-eqz v6, :cond_c
 
     .line 1131
     iget-object v6, p0, Lcom/xiaomi/smarthome/core/server/internal/plugin/PluginManager;->ag:Ljava/util/Map;
@@ -15692,7 +15644,7 @@
     goto :goto_9
 
     .line 1134
-    :cond_d
+    :cond_c
     new-instance v6, Lcom/xiaomi/smarthome/core/entity/plugin/PluginDeveloperInfo;
 
     invoke-direct {v6}, Lcom/xiaomi/smarthome/core/entity/plugin/PluginDeveloperInfo;-><init>()V
@@ -15706,14 +15658,14 @@
     goto :goto_9
 
     .line 1144
-    :cond_e
+    :cond_d
     iget-object v0, p0, Lcom/xiaomi/smarthome/core/server/internal/plugin/PluginManager;->ag:Ljava/util/Map;
 
     invoke-direct {p0, v0}, Lcom/xiaomi/smarthome/core/server/internal/plugin/PluginManager;->b(Ljava/util/Map;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_f
+    if-eqz v0, :cond_e
 
     .line 1145
     iget-object v0, p0, Lcom/xiaomi/smarthome/core/server/internal/plugin/PluginManager;->Y:Landroid/content/SharedPreferences;
@@ -15724,20 +15676,20 @@
 
     invoke-static {v0, v5, v6, v7}, Lcom/xiaomi/smarthome/core/server/internal/plugin/util/PreferenceUtils;->a(Landroid/content/SharedPreferences;Ljava/lang/String;J)V
 
-    :cond_f
+    :cond_e
     const/4 v0, 0x1
 
     goto :goto_a
 
-    :cond_10
+    :cond_f
     const/4 v0, 0x0
 
     .line 1153
-    :cond_11
+    :cond_10
     :goto_a
     sget-boolean v4, Lcom/xiaomi/smarthome/globalsetting/GlobalSetting;->s:Z
 
-    if-eqz v4, :cond_12
+    if-eqz v4, :cond_11
 
     const-string v4, "login"
 
@@ -15746,8 +15698,8 @@
     .line 1154
     invoke-static {v4, v5}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    :cond_12
-    if-eqz v0, :cond_13
+    :cond_11
+    if-eqz v0, :cond_12
 
     .line 1158
     invoke-direct {p0, v3, v2, v1}, Lcom/xiaomi/smarthome/core/server/internal/plugin/PluginManager;->a(ZZLjava/lang/String;)V
@@ -15768,10 +15720,10 @@
     invoke-interface {v0}, Landroid/content/SharedPreferences$Editor;->apply()V
 
     .line 1161
-    :cond_13
+    :cond_12
     sget-boolean v0, Lcom/xiaomi/smarthome/globalsetting/GlobalSetting;->s:Z
 
-    if-eqz v0, :cond_14
+    if-eqz v0, :cond_13
 
     const-string v0, "login"
 
@@ -15780,7 +15732,7 @@
     .line 1162
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    :cond_14
+    :cond_13
     return-void
 .end method
 

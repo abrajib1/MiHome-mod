@@ -346,7 +346,7 @@
 
     move-result-object p2
 
-    const-string p3, "/plugin/get_config_info_new"
+    const-string p3, "/plugin/get_config_info_new_mod"
 
     .line 88
     invoke-virtual {p2, p3}, Lcom/xiaomi/smarthome/core/entity/net/NetRequest$Builder;->b(Ljava/lang/String;)Lcom/xiaomi/smarthome/core/entity/net/NetRequest$Builder;
